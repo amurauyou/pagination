@@ -98,12 +98,12 @@ public class PagedRequest implements Pagination {
      * Creates a new pagination object representing the previous page
      *
      * @return new pagination object with offset shifted by offset-limit
+     * @throws NoPageAvailableException when traversing back came to the very first result list page
      */
     @Override
-    public Pagination getPrevious() {
+    public Pagination getPrevious() throws NoPageAvailableException {
         if (limit >= offset) {
-            //TODO: Make possible control this functionality to return first page or null or throw exception once lower bound is hit
-            return new PagedRequest(0, limit);
+            throw new NoPageAvailableException();
         } else {
             return new PagedRequest(offset - limit, limit);
         }

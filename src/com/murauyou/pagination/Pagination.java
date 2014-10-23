@@ -36,6 +36,6 @@ public interface Pagination extends OffsetLimitPagination, PageNumberSizePaginat
      *
      * @return new pagination object with offset shifted by offset-limit
      */
-    Pagination getPrevious();
+    Pagination getPrevious() throws NoPageAvailableException;
 
 }
