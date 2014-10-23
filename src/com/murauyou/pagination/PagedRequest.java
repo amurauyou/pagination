@@ -9,8 +9,8 @@ package com.murauyou.pagination;
  * Pagination object is used to page requests for lists where elements index, as usually, start with 0
  */
 public class PagedRequest implements Pagination {
-    private int offset = 0;
-    private int limit;
+    private final int offset;
+    private final int limit;
 
     private PagedRequest(int offset, int limit) {
         if (offset < 0) {
